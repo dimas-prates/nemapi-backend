@@ -8,6 +8,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //   res.send("Server UP");
 // });
 
-require("./controllers/authController")(app);
-require("./controllers/projectController")(app);
-app.listen(port,() => {console.log('Server is running...')});
+// require("./controllers/authController")(app);
+// require("./controllers/projectController")(app);
+require("./app/controllers/index")(app);
+app.listen(port, () => {
+  console.log("Server is running...");
+});
