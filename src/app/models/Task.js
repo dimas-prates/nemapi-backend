@@ -1,5 +1,4 @@
 const mongoose = require("../../database/index");
-const bcrypt = require("bcryptjs");
 const TaskSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -10,7 +9,7 @@ const TaskSchema = new mongoose.Schema({
     ref: "Project",
     require: true,
   },
-  assingedTo: {
+  assignedTo: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
@@ -19,6 +18,10 @@ const TaskSchema = new mongoose.Schema({
     type: Boolean,
     require: true,
     default: false,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 const Task = mongoose.model("Task", TaskSchema);
